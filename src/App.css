@@ -2,10 +2,140 @@
   height: 100vh
 }
 
+.login-container {
+  height: 100vh
+}
+
 .register-container {
   background-image: url(./assets/ecommerce.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+
+.login-container {
+  background-image: url(./assets/ecommerce-login.jpg);
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.password-icon {
+  position: absolute;
+  right: 15px;
+  top: 63%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+}
+.bg-color {
+  background-color: #F5B027;
+}
+.btn-background-color {
+  background-color: #F5B027;
+}
+
+.btn-background-color:hover {
+  background-color: #F5B027;
+}
+
+.bg-color-grey {
+  background-color: #212529
+}
+
+.link-border {
+  background-color: #F5B027;
+  color: #000 !important;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.product-wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+/* swipper */
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #444;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--swiper-theme-color);
+}
+
+.swiper-wrapper-custom {
+  height: 400px;
+  width: 400px;
+}
+
+
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: var(--swiper-theme-color);
+  fill: none;
+  stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}
+
+.para-description {
+  width: 400px;
+}
+
+.product-wrapper p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.product-img-wrapper {
+  height: 280px;
+}
+.input-value-box{
+  width: 20%;
 }
