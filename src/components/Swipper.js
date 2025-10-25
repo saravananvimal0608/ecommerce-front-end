@@ -1,55 +1,35 @@
-import React, { useRef } from 'react';
+import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
-const Swipper = ({ data }) => {
-    const progressCircle = useRef(null);
-    const progressContent = useRef(null);
-
-    const onAutoplayTimeLeft = (s, time, progress) => {
-        if (progressCircle.current && progressContent.current) {
-            progressCircle.current.style.setProperty('--progress', 1 - progress);
-            progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-        }
-    };
-
+import { Link } from 'react-router-dom'
+const SwiperComponent = ({ product }) => {
+    const BASE_URL = process.env.REACT_APP_BASE_URL
     return (
-        <div className="swiper-wrapper-custom">
-            <Swiper
-                spaceBetween={30}
-                centeredSlides={true}
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                }}
-                pagination={{
-                    clickable: true,
-                }}
-                navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}
-                onAutoplayTimeLeft={onAutoplayTimeLeft}
-                className="mySwiper"
-            >
-                {data.map((item, index) => (
-                    <SwiperSlide key={index}>
-                        <img
-                            src={item.image}
-                            alt={item.title}
-                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                        />
-                    </SwiperSlide>
-                ))}
-
-                {/* Progress indicator outside the map */}
-                <div className="autoplay-progress" slot="container-end">
-                    <svg viewBox="0 0 48 48" ref={progressCircle}>
-                        <circle cx="24" cy="24" r="20"></circle>
-                    </svg>
-                    <span ref={progressContent}></span>
-                </div>
-            </Swiper>
-        </div>
+        <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={4}
+            navigation
+            autoplay={{ delay: 3000 }}
+            loop={true}
+            breakpoints={{
+                0: { slidesPerView: 1 },
+                426: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 4 },
+            }}
+        >
+            {product?.map((item, index) => (
+                <SwiperSlide key={index}>
+                    <Link to={`/product/${item._id}`} className="text-decoration-none text-black">
+                        <div className="product-card">
+                            <img src={`${BASE_URL}/upload/${item.image}`} alt={item.name} width="100" height="100" />
+                            <h5>{item.name}</h5>
+                            <p className="fw-bold red-color">${item.price}</p>
+                        </div>
+                    </Link>
+                </SwiperSlide>
+            ))}
+        </Swiper>
     );
-};
-
-export default Swipper;
+}
+export default SwiperComponent

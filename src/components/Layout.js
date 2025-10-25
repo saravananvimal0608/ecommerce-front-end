@@ -1,11 +1,12 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import SideBar from './SideBar'
+
+import { Outlet, useParams } from 'react-router-dom'
+import NavBar from './NavBar'
 
 const Layout = () => {
+    const {id} = useParams();
     return (
-        <div className="d-flex">
-            <SideBar />
+        <div >
+            {!id && <NavBar />}
             <div>
                 <Outlet />
             </div>
