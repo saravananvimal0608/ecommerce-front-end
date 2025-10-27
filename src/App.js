@@ -19,6 +19,9 @@ import IsAdmin from './components/IsAdmin'
 import AdminLayout from './components/admin/AdminLayout'
 import AddCategory from './components/admin/AddCategory'
 import ViewCategory from './components/admin/ViewCategory'
+import AddProduct from './components/admin/AddProduct'
+import Viewproduct from './components/admin/ViewProducts'
+import Dashboard from './components/admin/Dashboard'
 
 function AppWrapper() {
   const location = useLocation();
@@ -31,10 +34,13 @@ function AppWrapper() {
         <Route path="/login" element={<LoginUser />} />
         <Route path="/register" element={<AddAndEditUser />} />
         <Route path="/admin" element={<IsAdmin><AdminLayout /></IsAdmin>}>
-          <Route index element={<h1> helo </h1>} />
+          <Route index element={<> <Dashboard /> </>} />
           <Route path="addcategory" element={<AddCategory />} />
           <Route path="viewcategory" element={<ViewCategory />} />
           <Route path="editcategory/:id" element={<AddCategory />} />
+          <Route path="addproduct" element={<AddProduct />} />
+          <Route path="viewproduct" element={<Viewproduct />} />
+          <Route path="editproduct/:id" element={<AddProduct />} />
         </Route>
         <Route path="/" element={<PrivateRouter><Layout /></PrivateRouter>}>
           <Route index element={<Home />} />

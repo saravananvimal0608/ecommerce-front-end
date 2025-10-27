@@ -26,6 +26,17 @@ const AdminNavbar = () => {
                 <div className={`admin-nav-links gap-4 d-flex ${menuOpen ? "show" : ""}`}>
 
                     <span onClick={() => setMenuOpen(false)} className="text-end"><IoCloseSharp size={"20"} /></span>
+
+                    <NavLink
+                        to="/admin"
+                        className={({ isActive }) =>
+                            `text-decoration-none text-black p-2 ${isActive ? "link-border" : ""}`
+                        }
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        Dashboard
+                    </NavLink>
+
                     <NavLink
                         to="/admin/addcategory"
                         className={({ isActive }) =>
@@ -47,7 +58,7 @@ const AdminNavbar = () => {
                     </NavLink>
 
                     <NavLink
-                        to="/products"
+                        to="/admin/addproduct"
                         className={({ isActive }) =>
                             `text-decoration-none text-black p-2 ${isActive ? "link-border" : ""}`
                         }
@@ -56,7 +67,7 @@ const AdminNavbar = () => {
                         Add Products
                     </NavLink>
                     <NavLink
-                        to="/"
+                        to="/admin/viewproduct"
                         className={({ isActive }) =>
                             `text-decoration-none text-black p-2 ${isActive ? "link-border" : ""}`
                         }
@@ -65,13 +76,22 @@ const AdminNavbar = () => {
                         View Products
                     </NavLink>
                     <NavLink
-                        to="/about"
+                        to="/"
                         className={({ isActive }) =>
                             `text-decoration-none text-black p-2 ${isActive ? "link-border" : ""}`
                         }
                         onClick={() => setMenuOpen(false)}
                     >
-                        About Us
+                        Home
+                    </NavLink>
+                    <NavLink
+                        to="/profile"
+                        className={({ isActive }) =>
+                            `text-decoration-none text-black p-2 ${isActive ? "link-border" : ""}`
+                        }
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        Profile
                     </NavLink>
                 </div>
             </nav>

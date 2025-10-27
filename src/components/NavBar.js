@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom'
 const NavBar = () => {
     const userData = JSON.parse(localStorage.getItem("user"))
 
-    const firstLetterName = userData.name[0]
+    const firstLetterName = userData?.name[0]
     const [menuOpen, setMenuOpen] = useState(false);
     return (
         <div>
-            <nav className="navbar navbar-container navbar-expand-lg navbar-light bg-light d-flex justify-content-between align-items-center px-5">
+            <nav className="navbar navbar-container navbar-expand-lg d-flex justify-content-between align-items-center px-5">
 
                 <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
                     <IoReorderThreeOutline size={30} />
@@ -66,7 +66,7 @@ const NavBar = () => {
                         About Us
                     </NavLink>
                     {userData.isAdmin && <NavLink
-                        to="/about"
+                        to="/admin"
                         className={({ isActive }) =>
                             `text-decoration-none text-black p-2 ${isActive ? "link-border" : ""}`
                         }

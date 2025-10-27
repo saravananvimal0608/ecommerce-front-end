@@ -8,7 +8,6 @@ const AddCategory = () => {
     const fileInputRef = useRef(null);
     const BASE_URL = process.env.REACT_APP_BASE_URL
     const { id } = useParams()
-    const navigate = useNavigate()
 
     const singleDataFetch = async () => {
         try {
@@ -30,10 +29,8 @@ const AddCategory = () => {
             const res = id
                 ? await axios.put(`${BASE_URL}/category/update/${id}`, formData)
                 : await axios.post(`${BASE_URL}/category/add/category`, formData)
-            console.log(res);
 
-            toast.success(id ? "category updated successfully" : "category added successfully")
-            id && navigate("/admin/viewcategory")
+            toast.success(res.data.message)
             if (!id) {
                 setData({ name: "", image: null });
                 fileInputRef.current.value = null;
@@ -45,6 +42,9 @@ const AddCategory = () => {
     useEffect(() => {
         if (id) {
             singleDataFetch()
+        }
+        else {
+            setData({ name: "", image: null })
         }
     }, [id])
 
@@ -69,16 +69,27 @@ const AddCategory = () => {
                             onChange={(e) => setData({ ...data, image: e.target.files[0] })}
                             {...(!id && { ref: fileInputRef })} />
 
-                        {!(data.image instanceof File) && data.image && (
-                            <div className="mt-3 text-center">
+                        <div className="mt-3 text-center">
+                            {data.image instanceof File ? (
                                 <img
-                                    src={`${BASE_URL}/upload/${data.image}`}
-                                    alt="category"
+                                    src={URL.createObjectURL(data.image)}
+                                    alt="preview"
                                     width="120"
                                     height="120"
                                     className="border-3 rounded-5 object-fit-cover"
                                 />
-                            </div>)}
+                            ) : (
+                                data.image && (
+                                    <img
+                                        src={`${BASE_URL}/upload/${data.image}`}
+                                        alt="old"
+                                        width="120"
+                                        height="120"
+                                        className="border-3 rounded-5 object-fit-cover"
+                                    />
+                                )
+                            )}
+                        </div>
                     </div>
                     <button type="submit" className="btn bg-color mt-3">{id ? "update" : "Submit"}</button>
                 </form>

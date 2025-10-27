@@ -226,7 +226,9 @@ input.search-input {
     left: 0;
     right: 0;
     z-index: 1100;
+    background: linear-gradient(to top, #ddd6f3 0%, #faaca8 124%);
   }
+
 
   .nav-links.show {
     left: 0;
@@ -239,7 +241,7 @@ input.search-input {
   position: absolute;
   position: fixed;
   top: 46px;
-  left: -310px;
+  left: -436px;
   height: 100vh;
   width: 17%;
   padding: 20px;
@@ -248,6 +250,41 @@ input.search-input {
   transition: left 0.3s ease;
   z-index: 1000;
 }
+
+.dashboard-card {
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-icon {
+  opacity: 0.1;
+  bottom: -10px;
+  right: 10px;
+  color: #000;
+}
+
+.dashboard-card span {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.dashboard-card h3 {
+  margin-top: 10px;
+  color: #333;
+}
+
+
+.total-user-icon {}
 
 .scroll-bar {
   width: 100% !important;
@@ -268,12 +305,14 @@ input.search-input {
   left: 0;
   right: 0;
   z-index: 1100;
-  background: linear-gradient(to top, #ED213A 0%, #93291E 100%);
+  background: linear-gradient(to top, #ddd6f3 0%, #faaca8 124%);
 }
 
-.admin-nav-links.show {
+.navbar .admin-nav-links.show {
   left: 0;
   top: 0;
+  background: linear-gradient(to top, #DE6089 0%, #F6B696 100%);
+
 }
 
 @media screen and (max-width:426px) {
