@@ -19,7 +19,7 @@ const Footer = () => {
                 <div className="col-12 col-sm-6 col-md-2 text-sm-start text-center">
                     <h5>Company</h5>
                     <Link className="text-decoration-none text-black d-block">Home Backup</Link>
-                    <Link className="text-decoration-none text-black d-block">About</Link>
+                    <Link to="/about" className="text-decoration-none text-black d-block">About</Link>
                     <Link className="text-decoration-none text-black d-block">Contact Us</Link>
                 </div>
 

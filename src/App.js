@@ -22,6 +22,8 @@ import ViewCategory from './components/admin/ViewCategory'
 import AddProduct from './components/admin/AddProduct'
 import Viewproduct from './components/admin/ViewProducts'
 import Dashboard from './components/admin/Dashboard'
+import NotFound from './components/NotFound'
+import ScrollToP from './components/ScrollTop'
 
 function AppWrapper() {
   const location = useLocation();
@@ -50,7 +52,8 @@ function AppWrapper() {
           <Route path="/product/:id" element={<SingleProduct />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
-      </Routes>
+        <Route path="*" element={<NotFound />} />
+      </Routes >
       <ToastContainer />
     </>
   );
@@ -59,6 +62,7 @@ function AppWrapper() {
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToP />
       <AppWrapper />
     </BrowserRouter>
   );

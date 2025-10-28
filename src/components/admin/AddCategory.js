@@ -50,7 +50,7 @@ const AddCategory = () => {
 
     return (
         <div>
-            <h2 className="text-center mb-5">{id ? "Edit Category" : "Add Categories"}</h2>
+            <h2 className="text-center mb-5 fw-bold">{id ? "Edit Category" : "Add Categories"}</h2>
             <div className="d-flex justify-content-center">
 
                 <form className="form-container p-4" onSubmit={handlesubmit}>

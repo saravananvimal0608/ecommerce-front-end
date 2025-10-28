@@ -9,7 +9,7 @@ const AdminNavbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     return (
         <div>
-            <nav className="navbar admin-navbar-container navbar-expand-lg navbar-light bg-light d-flex justify-content-between align-items-center px-5">
+            <nav className="navbar admin-navbar-container bg-color-linear navbar-expand-lg navbar-light bg-light d-flex justify-content-between align-items-center px-5">
 
                 <div onClick={() => setMenuOpen(!menuOpen)}>
                     <IoReorderThreeOutline size={30} />
@@ -29,6 +29,7 @@ const AdminNavbar = () => {
 
                     <NavLink
                         to="/admin"
+                        end
                         className={({ isActive }) =>
                             `text-decoration-none text-black p-2 ${isActive ? "link-border" : ""}`
                         }

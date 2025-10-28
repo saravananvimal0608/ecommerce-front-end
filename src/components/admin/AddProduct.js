@@ -87,7 +87,7 @@ const AddProduct = () => {
     return (
         <div className="d-flex justify-content-center">
             <div>
-                <h2 className=" mt-5 mb-3 text-center">{id ? "Edit Product" : "Add Product"}</h2>
+                <h2 className=" mt-5 mb-3 text-center fw-bold">{id ? "Edit Product" : "Add Product"}</h2>
                 <Form className="border p-5 form-container" onSubmit={handlesubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Product Name</Form.Label>

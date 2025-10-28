@@ -1,12 +1,11 @@
 
-import { Outlet, useParams } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import NavBar from './NavBar'
 
 const Layout = () => {
-    const {id} = useParams();
     return (
         <div >
-            {!id && <NavBar />}
+            <NavBar />
             <div>
                 <Outlet />
             </div>

@@ -17,3 +17,16 @@ export const apiRequest = async (endpoint, method, data = null, headers = {}) =>
         throw error
     }
 }
+
+export const renderStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const emptyStars = 5 - fullStars;
+
+    return (
+        <span className="stars">
+            {"★".repeat(fullStars)}
+            {"☆".repeat(emptyStars)}
+        </span>
+    );
+};
+

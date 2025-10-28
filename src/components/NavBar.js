@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { IoReorderThreeOutline } from "react-icons/io5";
 import logo from '../assets/logo.png'
 import { Link } from 'react-router-dom'
+import { IoCloseSharp } from "react-icons/io5";
 
 const NavBar = () => {
     const userData = JSON.parse(localStorage.getItem("user"))
@@ -11,7 +12,7 @@ const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     return (
         <div>
-            <nav className="navbar navbar-container navbar-expand-lg d-flex justify-content-between align-items-center px-5">
+            <nav className="navbar navbar-container bg-color-linear navbar-expand-lg d-flex justify-content-between align-items-center px-5">
 
                 <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
                     <IoReorderThreeOutline size={30} />
@@ -26,6 +27,7 @@ const NavBar = () => {
                     </div>
                 </div>
                 <div className={`nav-links gap-4 d-flex ${menuOpen ? "show" : ""}`}>
+                    <span onClick={() => setMenuOpen(false)} className="text-end hide-lg"><IoCloseSharp size={"20"} /></span>
                     <NavLink
                         to="/profile"
                         className={({ isActive }) =>

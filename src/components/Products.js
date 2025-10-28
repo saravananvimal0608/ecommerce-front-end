@@ -79,16 +79,16 @@ const Products = () => {
                     filteredProducts.map((data) => (
                         <div key={data._id} className="col-6 col-md-4 col-lg-3 mb-4 text-center g-3">
                             <Link to={`/product/${data._id}`} className="text-decoration-none">
-                                <div className="product-img-wrapper p-3 bg-white">
+                                <div className="product-img-wrapper p-3 bg-white rounded-3 card">
                                     <img
                                         src={`${BASE_URL}/upload/${data?.image}`}
                                         alt={data.name}
                                         className="img-fluid rounded"
                                         style={{ height: "150px", objectFit: "contain" }}
                                     />
-                                    <p className="mt-1 text-dark"><b>Name :</b> {data.name}</p>
-                                    <p className="mt-1 text-dark"><b>Brand:</b> {data.brand}</p>
-                                    <p className="fw-bold red-color"><b>$</b>{data.price}</p>
+                                    <p className="my-1  text-dark"><b>Name : </b> {data.name}</p>
+                                    <p className="my-1 text-dark"><b>Brand : </b> {data.brand}</p>
+                                    <p className="text-black mt-1"><b>Price : </b>$<span className="red-color">{data.price}</span></p>
                                 </div>
                             </Link>
                         </div>
@@ -100,7 +100,7 @@ const Products = () => {
                 )}
             </div>
             <div className="container my-5">
-                <div className="product-title my-5">
+                <div className="bg-color-linear my-5">
                     <h4 className="text-center p-1 fw-bold">top-rated products</h4>
                 </div>
 
@@ -132,7 +132,7 @@ const Products = () => {
                 </div>
             </div>
 
-            <div className="product-title my-5">
+            <div className="bg-color-linear my-5">
                 <h4 className="text-center p-1 fw-bold">Related products</h4>
             </div>
             <Swiper product={products} />
