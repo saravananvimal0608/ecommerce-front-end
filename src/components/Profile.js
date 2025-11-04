@@ -1,21 +1,30 @@
 import { useEffect, useState } from 'react';
-import profileImg from '../assets/adidas.jpg';
+import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { useRef } from "react";
+import { apiRequest } from '../common/common.js'
+import defaultimg from '../assets/defaultimg.png'
 
 const ProfilePage = () => {
     const [data, setData] = useState([])
     const BASE_URL = process.env.REACT_APP_BASE_URL
     const navigate = useNavigate()
     const user = JSON.parse(localStorage.getItem("user"))
+    const fileInputRef = useRef(null)
+    const token = localStorage.getItem("token")
+
+    // for click the image input tag is open
+    const handleInputChange = () => {
+        fileInputRef.current.click()
+    }
 
     const handleFetch = async () => {
         try {
-            const res = await axios.get(`${BASE_URL}/user/getsingleuser/${user._id}`)
-            setData(res.data.data)
+            const res = await apiRequest(`/user/getsingleuser/${user._id}`, "GET")
+            setData(res.data)
         } catch (error) {
-            console.error("single data fetching error ");
+            toast.error(error.response.data.message)
         }
     }
     const handleLogout = () => {
@@ -23,6 +32,26 @@ const ProfilePage = () => {
         localStorage.removeItem("user");
         navigate("/login");
     }
+
+    const handleProfileChange = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const token = localStorage.getItem("token");
+        const formData = new FormData();
+        formData.append("image", file);
+
+        try {
+            await apiRequest(`/user/updateimage`, "PUT", formData, { "Content-Type": "multipart/form-data" })
+
+            toast.success("Profile image updated successfully!");
+            handleFetch();
+        } catch (error) {
+            toast.error("Error uploading image");
+            console.error(error);
+        }
+    }
+
     useEffect(() => {
         handleFetch()
     }, [])
@@ -33,12 +62,22 @@ const ProfilePage = () => {
                 <div className="col-12 col-md-4 mb-4">
                     <div className="card text-center p-4 shadow-lg border-0 profile-card">
                         <img
-                            src={profileImg}
+                            src={data.profileImage ? `${BASE_URL/"upload"/data.profileImage}` : defaultimg}
                             alt="User"
-                            className="rounded-circle mx-auto border border-3 border-primary"
+                            className="rounded-circle mx-auto border border-3 border-color object-fit-cover"
                             width="120"
                             height="120"
+                            onClick={handleInputChange}
                         />
+
+                        <input
+                            type="file"
+                            accept="image/*"
+                            ref={fileInputRef}
+                            onChange={handleProfileChange}
+                            className="form-control mt-3 d-none"
+                        />
+
                         <h4 className="mt-3 text-dark">{data?.name || "Guest User"}</h4>
                         <p className="text-muted mb-1">{data?.email || "No Email"}</p>
                         <p className="text-muted">{data?.number || "No Number"}</p>
@@ -71,12 +110,6 @@ const ProfilePage = () => {
                             <div className="col-sm-8 text-dark fw-semibold">{data?.number || "No Number"}</div>
                         </div>
 
-                        <div className="row mb-3">
-                            <div className="col-sm-4 text-muted">Shipping Address</div>
-                            <div className="col-sm-8 text-dark fw-semibold">
-                                123 Main Street, Chennai, Tamil Nadu 600001
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

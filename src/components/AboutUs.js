@@ -4,9 +4,9 @@ import Footer from '../components/Footer';
 const AboutUs = () => {
     return (
         <div className="container">
-            <div className="container d-flex gap-5 mt-5 flex-wrap justify-content-center mb-5">
-                <div className="col-12 col-xl-5">
-                    <img src={homeimg} alt="home image" width="100%" height="600" className="rounded-5" />
+            <div className=" d-flex gap-5 mt-5 flex-wrap justify-content-center mb-5">
+                <div className="col-12 col-xl-5 pt-4 pt-xl-0" >
+                    <img src={homeimg} alt="home image" width="100%" className="rounded-5 about-img" />
                 </div>
                 <div className="col-12  col-xl-5">
                     <div>
