@@ -48,7 +48,7 @@ const ViewCategory = () => {
             {/* delete popup */}
             {Delete && (
                 <div className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center model-popup">
-                    <div className="modal-content w-25 text-center  border-2 border-dark rounded-4 p-3 bg-white">
+                    <div className="modal-content text-center  border-2 border-dark rounded-4 p-3 bg-white">
                         <div className="modal-header border-0 d-flex justify-content-center">
                             <h5 className="modal-title fw-bold fs-4">Delete Category</h5>
                             <button
@@ -104,24 +104,24 @@ const ViewCategory = () => {
                                         />
                                     </td>
                                     <td className="align-middle">{d.name}</td>
-                                    <td className="align-middle text-center position-relative three-dot-icon">
-                                        <p className="m-0">
-                                            <BsThreeDotsVertical color="black" size={20} />
-                                        </p>
-                                        <div className="delete-and-edit-box d-flex align-items-center justify-content-center position-absolute border flex-column bg-white p-2 rounded w-50 d-none">
-                                            <p className="m-0 d-flex gap-3" onClick={() => deleteMethod(d._id)} >
-                                                <MdDelete
-                                                    className="pointer mb-2"
-                                                    size={20}
-                                                />
-                                                <span className="pointer">Delete</span>
-                                            </p>
-                                            <p className="m-0">
-                                                <Link to={`/admin/editcategory/${d._id}`}>
-                                                    <FaRegEdit className="pointer" size={20} color="black" />
-                                                    <span className="pointer text-decoration-none text-black">Edit</span>
-                                                </Link>
-                                            </p>
+                                    <td>
+                                        <div className="position-relative three-dot-icon">
+                                            <BsThreeDotsVertical className="pointer" />
+                                            <div className="delete-and-edit-box ">
+                                                <p className="m-0 pointer d-flex gap-3 align-items-center" onClick={() => deleteMethod(d._id)}>
+                                                    <MdDelete size={20} />
+                                                    <span>Delete</span>
+                                                </p>
+                                                <p className="m-0 pointer">
+                                                    <Link
+                                                        to={`/admin/editcategory/${d._id}`}
+                                                        className="d-flex gap-3 align-items-center text-decoration-none text-black"
+                                                    >
+                                                        <FaRegEdit size={20} />
+                                                        <span>Edit</span>
+                                                    </Link>
+                                                </p>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
