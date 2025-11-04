@@ -274,19 +274,33 @@ mark {
 }
 
 .delete-and-edit-box {
-  top: 12px;
-  left: 23%;
+  position: absolute;
+  top: 26px;
+  left: 29%;
   transform: translateX(-50%);
-  z-index: 10;
+  max-width: 250px;
+  min-width: 110px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  z-index: 10;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  word-wrap: break-word;
 }
 
 .three-dot-icon:hover .delete-and-edit-box {
   display: flex !important;
-  /* make it visible on hover */
 }
 
-
+.model-popup .modal-content {
+  width: 90%;
+  max-width: 400px;
+}
 
 /* admin css */
 .admin-nav-links {
