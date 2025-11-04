@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import homeimg from '../assets/home.png'
 import puma from '../assets/puma.png'
 import adidas from '../assets/adidas.jpg'
@@ -12,21 +11,23 @@ import SwiperComponent from '../components/Swipper'
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
 import { renderStars } from '../common/common.js'
+import { apiRequest } from './../common/common';
+import defaultimg from '../assets/defaultimg.png'
+
 const Home = () => {
     const BASE_URL = process.env.REACT_APP_BASE_URL
     const [product, setProduct] = useState([])
 
     const fetchProducts = async () => {
-        const res = await axios.get(`${BASE_URL}/product/`)
-        setProduct(res.data.data)
+        const res = await apiRequest("/product/", "GET")
+        setProduct(res.data)
     }
     useEffect(() => {
         fetchProducts()
     }, [])
-    console.log(product);
 
     return (
-        <div className="container mt-5 ">
+        <div className="container mt-xl-5 home-wrapper ">
             <div>
                 <img src={homeimg} alt="homeimg" width="100%" height="200px" />
             </div>
@@ -46,7 +47,13 @@ const Home = () => {
                     {product.slice(0, 10).map((data) => (
                         <div >
                             <Link to={`/product/${data._id}`} className="text-decoration-none text-black">
-                                <img src={`${BASE_URL}/upload/${data.image}`} alt={data.name} width="200" height="200" className="dynamic-products p-1" />
+                                <img
+                                    src={data?.image ? `${BASE_URL}/upload/${data?.image}` : defaultimg}
+                                    alt={data?.name}
+                                    width="200"
+                                    height="200"
+                                    className="dynamic-products p-1"
+                                />
                                 <h6 className="mt-1"><b>brand : </b>{data.name}</h6>
                                 <p className=' mb-1'><b>Price :</b><span className='red-color'> ${data.price}</span></p>
                                 <p><b>Rating: </b> <span className="red-color">{renderStars(4)}</span></p>

@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import axios from 'axios'
 import { toast } from 'react-toastify'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom'
+import { apiRequest } from './../common/common';
 
 const LoginUser = () => {
-    const BASE_URL = process.env.REACT_APP_BASE_URL
     const [data, setData] = useState({ email: "", password: "" })
     const [error, setError] = useState(null)
     const [togglePassword, setTogglePassword] = useState(false)
@@ -34,29 +33,29 @@ const LoginUser = () => {
             return
         }
         try {
-            const res = await axios.post(`${BASE_URL}/user/login`, data)
+            const res = await apiRequest("/user/login", "POST", data)
             setData({ email: '', password: '' })
-            localStorage.setItem("token", res.data.data.token);
-            localStorage.setItem("user", JSON.stringify(res.data.data));
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("user", JSON.stringify(res.data));
             navigate("/")
-            toast.success(res.data.message)
+            toast.success(res.message)
         } catch (error) {
             console.log(error);
-            toast.error(error.response.data.message)
+            toast.error(error?.response?.data?.message)
         }
     }
 
     return (
-        <div className="d-flex justify-content-center align-items-center login-container" >
-            <form onSubmit={handlesubmit}>
-                <div className="form-group">
+        <div className="d-flex justify-content-center align-items-center login-container " >
+            <form onSubmit={handlesubmit} className=" p-5 form-box">
+                <div className="form-group ">
                     <label className="text-white">Email</label>
-                    <input type="text" className="form-control" name="email" value={data?.email} onChange={handleChange} />
+                    <input type="text" className={`form-control ${error?.email ? 'input-field-error' : ""}`} name="email" value={data?.email} onChange={handleChange} />
                     {error?.email && <span className="text-danger"><b>{error.email}</b></span>}
                 </div>
                 <div className="form-group">
                     <label for="exampleInputPassword1" className="text-white">Password</label>
-                    <span className="position-relative"> <input type={togglePassword ? "text" : "password"} className="form-control" name="password" value={data?.password} onChange={handleChange} /><span className="password-icon" onClick={() => setTogglePassword(!togglePassword)}> {togglePassword ? <FaEye /> : <FaEyeSlash />}</span></span>
+                    <span className="position-relative"> <input type={togglePassword ? "text" : "password"}  className={`form-control ${error?.password ? 'input-field-error' : ""}`} name="password" value={data?.password} onChange={handleChange} /><span className="password-icon" onClick={() => setTogglePassword(!togglePassword)}> {togglePassword ? <FaEye /> : <FaEyeSlash />}</span></span>
                     {error?.password && <p className="text-danger"><b>{error?.password}</b></p>}
                 </div>
                 <div className="d-flex flex-column">

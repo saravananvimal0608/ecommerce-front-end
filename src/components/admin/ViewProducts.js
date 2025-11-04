@@ -1,52 +1,55 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import { toast } from 'react-toastify'
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import defaultimg from '../../assets/defaultimg.png'
 import { Link } from 'react-router-dom';
+import { apiRequest } from '../../common/common.js';
 
 const ViewProduct = () => {
-    const [data, setData] = useState([])
-    const BASE_URL = process.env.REACT_APP_BASE_URL
-    const [Delete, setDelete] = useState(false)
-    const [deleteId, setdeleteId] = useState(null)
+    const [data, setData] = useState([]);
+    const [Delete, setDelete] = useState(false);
+    const [deleteId, setDeleteId] = useState(null);
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-    // get a id and open the model popup for delete
+    // open delete popup
     const deleteMethod = (id) => {
-        setdeleteId(id)
-        setDelete(true)
-    }
-    // delete function
+        setDeleteId(id);
+        setDelete(true);
+    };
+
+    // delete product
     const handleDelete = async () => {
         try {
-            const res = await axios.delete(`${BASE_URL}/product/${deleteId}`)
-            toast.success(res.data.message)
-            setDelete(false)
-            handleFetch()
+            const res = await apiRequest(`/product/${deleteId}`, "DELETE");
+            toast.success(res.message);
+            setDelete(false);
+            handleFetch();
         } catch (error) {
-            toast.error(error.response.data.message)
+            console.log("Delete error:", error);
         }
-    }
+    };
 
+    // fetch all products
     const handleFetch = async () => {
         try {
-            const res = await axios.get(`${BASE_URL}/product/`)
-            setData(res.data.data)
+            const res = await apiRequest("/product/", "GET");
+            setData(res.data);
         } catch (error) {
-            toast.error(error.response.data.message)
+            console.log("Fetch error:", error);
         }
-    }
+    };
+
     useEffect(() => {
-        handleFetch()
-    }, [])
+        handleFetch();
+    }, []);
 
     return (
         <div>
-            {/* delete popup */}
+            {/* Delete Popup */}
             {Delete && (
                 <div className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center model-popup">
-                    <div className="modal-content w-25 text-center  border-2 border-dark rounded-4 p-3 bg-white">
+                    <div className="modal-content w-25 text-center border-2 border-dark rounded-4 p-3 bg-white">
                         <div className="modal-header border-0 d-flex justify-content-center">
                             <h5 className="modal-title fw-bold fs-4">Delete Product</h5>
                             <button
@@ -57,7 +60,9 @@ const ViewProduct = () => {
                         </div>
 
                         <div className="modal-body">
-                            <p className="fs-6 text-secondary">Are you sure you want to Delete this product?</p>
+                            <p className="fs-6 text-secondary">
+                                Are you sure you want to delete this product?
+                            </p>
                         </div>
 
                         <div className="modal-footer border-0 d-flex justify-content-center gap-3">
@@ -76,17 +81,17 @@ const ViewProduct = () => {
                 </div>
             )}
 
-            <div className="d-flex justify-content-center flex-column w-100  p-3">
-
+            {/* Product Table */}
+            <div className="d-flex justify-content-center flex-column w-100 p-3">
                 <h2 className="text-center mb-5 fw-bold">All Products</h2>
                 <div className="w-100 p-3 border rounded shadow-sm bg-light scroll-bar">
                     <table className="table table-bordered table-hover">
                         <thead className="table-header text-center">
                             <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">Product Image</th>
-                                <th scope="col">Product Name</th>
-                                <th scope="col">Action</th>
+                                <th>Id</th>
+                                <th>Product Image</th>
+                                <th>Product Name</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody className="text-center">
@@ -103,10 +108,16 @@ const ViewProduct = () => {
                                         />
                                     </td>
                                     <td className="align-middle">{d.name}</td>
-                                    <td className="align-middle text-center">
-                                        <div>
-                                            <MdDelete className="pointer me-3" size={"20"} onClick={() => deleteMethod(d._id)} />
-                                            <Link to={`/admin/editproduct/${d._id}`} ><FaRegEdit className="pointer" size={"20"} color={"black"} /></Link>
+                                    <td className="align-middle">
+                                        <div className="d-flex align-items-center justify-content-center">
+                                            <MdDelete
+                                                className="pointer me-3"
+                                                size={20}
+                                                onClick={() => deleteMethod(d._id)}
+                                            />
+                                            <Link to={`/admin/editproduct/${d._id}`}>
+                                                <FaRegEdit className="pointer" size={20} color="black" />
+                                            </Link>
                                         </div>
                                     </td>
                                 </tr>
@@ -116,7 +127,7 @@ const ViewProduct = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ViewProduct
+export default ViewProduct;

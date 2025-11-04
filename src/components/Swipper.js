@@ -2,6 +2,8 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom'
 import { renderStars } from '../common/common.js'
+import defaultimg from '../assets/defaultimg.png'
+
 const SwiperComponent = ({ product }) => {
     const BASE_URL = process.env.REACT_APP_BASE_URL
 
@@ -24,7 +26,7 @@ const SwiperComponent = ({ product }) => {
                 <SwiperSlide key={index}>
                     <Link to={`/product/${item._id}`} className="text-decoration-none text-black">
                         <div className="product-card">
-                            <img src={`${BASE_URL}/upload/${item.image}`} alt={item.name} width="100" height="90" />
+                            <img src={item.image ? `${BASE_URL}/upload/${item.image}` : defaultimg} alt={item.name} width="100" height="90" />
                             <p className="mt-1 mb-1"><b>Product : </b>{item.name}</p>
                             <p className=" mb-1"><b>price : </b><span className="red-color">${item.price}</span></p>
                             <p><b>Rating : </b> <span className="red-color">{renderStars(4)}</span></p>
