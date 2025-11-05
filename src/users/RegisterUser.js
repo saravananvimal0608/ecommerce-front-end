@@ -95,25 +95,25 @@ const RegisterUser = () => {
             <form onSubmit={handlesubmit} className=" p-5 form-box">
                 <div className="form-group">
                     <label for="name" className="text-white">Name</label>
-                    <input type="text"  className={`form-control ${error?.name ? 'input-field-error' : ""}`} name="name" value={data.name} onChange={handleChange} />
+                    <input type="text" className={`form-control ${error?.name ? 'input-field-error' : ""}`} name="name" value={data.name} onChange={handleChange} />
                     {error.name && <p className="text-danger"><b>{error.name}</b></p>}
 
                 </div>
                 <div className="form-group">
                     <label for="exampleInputEmail1" className="text-white">Email address</label>
-                    <input type="email"  className={`form-control ${error?.email ? 'input-field-error' : ""}`} name="email" value={data.email} onChange={handleChange} />
+                    <input type="email" className={`form-control ${error?.email ? 'input-field-error' : ""}`} name="email" value={data.email} onChange={handleChange} />
                     {error.email && <p className="text-danger"><b>{error.email}</b></p>}
                 </div>
                 <div className="form-group">
                     <label for="name" className="text-white">Phone:</label>
-                    <input type="text"  className={`form-control ${error?.number ? 'input-field-error' : ""}`} name="number" value={data.number} onChange={handleChange} maxLength={10} />
+                    <input type="text" className={`form-control ${error?.number ? 'input-field-error' : ""}`} name="number" value={data.number} onChange={handleChange} maxLength={10} />
                     {error.number && <p className="text-danger"><b>{error.number}</b></p>}
                 </div>
-                <div className="form-group">
+                {!id && <div className="form-group">
                     <label for="exampleInputPassword1" className="text-white">Password</label>
-                    <span className="position-relative"> <input type={togglePassword ? "text" : "password"}  className={`form-control ${error?.password ? 'input-field-error' : ""}`} placeholder={id ? "enter new password" : ""} name="password" value={data.password} onChange={handleChange} /><span className="password-icon password-icon-register" onClick={() => setTogglePassword(!togglePassword)}> {togglePassword ? <FaEye /> : <FaEyeSlash />}</span></span>
+                    <span className="position-relative"> <input type={togglePassword ? "text" : "password"} className={`form-control ${error?.password ? 'input-field-error' : ""}`} placeholder={id ? "enter new password" : ""} name="password" value={data.password} onChange={handleChange} /><span className="password-icon password-icon-register" onClick={() => setTogglePassword(!togglePassword)}> {togglePassword ? <FaEye /> : <FaEyeSlash />}</span></span>
                     {error.password && <p className="text-danger"><b>{error.password}</b></p>}
-                </div>
+                </div>}
                 <button type="submit" className="btn-background-color btn mt-3 text-white">{id ? "Update" : "Register"}</button>
             </form>
         </div>

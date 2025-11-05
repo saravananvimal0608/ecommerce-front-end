@@ -62,7 +62,7 @@ const ProfilePage = () => {
                 <div className="col-12 col-md-4 mb-4">
                     <div className="card text-center p-4 shadow-lg border-0 profile-card">
                         <img
-                            src={data.profileImage ? `${BASE_URL/"upload"/data.profileImage}` : defaultimg}
+                            src={data.profileImage ? `${BASE_URL}/upload/${data.profileImage}` : defaultimg}
                             alt="User"
                             className="rounded-circle mx-auto border border-3 border-color object-fit-cover"
                             width="120"
