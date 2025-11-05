@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
 import { toast } from 'react-toastify'
 import { apiRequest } from './../common/common'
 import defaultimg from '../assets/defaultimg.png'
@@ -133,8 +132,6 @@ const Products = () => {
                     </div>
                 )}
             </div>
-
-            <Footer />
         </div>
     )
 }

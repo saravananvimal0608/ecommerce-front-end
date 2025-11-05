@@ -71,7 +71,7 @@ const CartPage = () => {
                                         <div className="row g-0 align-items-center">
                                             <div className="col-md-3 text-center p-3">
                                                 <img
-                                                  src={item?.productId?.image ? `${BASE_URL/"upload"/item?.productId?.image}` : defaultimg}
+                                                  src={item?.productId?.image ? `${BASE_URL}/upload/${item?.productId?.image}` : defaultimg}
                                                     alt={item?.productId?.name}
                                                     className="img-fluid rounded-3"
                                                     style={{ maxHeight: "120px", objectFit: "cover" }}

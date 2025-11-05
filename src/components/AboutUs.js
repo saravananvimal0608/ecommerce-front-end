@@ -1,5 +1,4 @@
 import homeimg from '../assets/home.png'
-import Footer from '../components/Footer';
 
 const AboutUs = () => {
     return (
@@ -35,7 +34,6 @@ const AboutUs = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }

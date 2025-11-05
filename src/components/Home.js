@@ -8,7 +8,6 @@ import reebok from '../assets/reebok.png'
 import jordan from '../assets/jordan.jpg'
 import pumaMain from '../assets/pumaMain.jpg'
 import SwiperComponent from '../components/Swipper'
-import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
 import { renderStars } from '../common/common.js'
 import { apiRequest } from './../common/common';
@@ -77,7 +76,6 @@ const Home = () => {
 
                 <SwiperComponent product={product} />
             </div>
-            <Footer />
         </div>
     )
 }

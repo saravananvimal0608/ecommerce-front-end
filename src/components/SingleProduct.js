@@ -3,7 +3,6 @@ import { apiRequest } from '../common/common.js'
 import { toast } from 'react-toastify'
 import { FaShoppingBag } from "react-icons/fa";
 import { useEffect, useState } from 'react'
-import Footer from '../components/Footer'
 import SwiperComponent from '../components/Swipper'
 import defaultimg from '../assets/defaultimg.png'
 
@@ -54,7 +53,7 @@ const SingleProduct = () => {
     }, [id])
 
     return (
-        <div className="container">
+        <div className="container position-relative">
             <div className="row mt-5 justify-content-center">
                 <div className="col-lg-10 pt-3 pt-xl-0">
                     <div className="row">
@@ -94,7 +93,6 @@ const SingleProduct = () => {
             <div className="mt-5">
                 <p>:&nbsp;</p>
             </div>
-            <Footer />
         </div>
     );
 }
