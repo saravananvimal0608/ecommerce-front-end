@@ -14,7 +14,7 @@ const SwiperComponent = ({ product }) => {
             slidesPerView={4}
             navigation
             autoplay={{ delay: 3000 }}
-            loop={true}
+            loop={product.length > 4}
             breakpoints={{
                 0: { slidesPerView: 1 },
                 426: { slidesPerView: 2 },
@@ -22,8 +22,8 @@ const SwiperComponent = ({ product }) => {
                 1024: { slidesPerView: 4 },
             }}
         >
-            {product?.map((item, index) => (
-                <SwiperSlide key={index}>
+            {product?.map((item) => (
+                <SwiperSlide key={item._id}>
                     <Link to={`/product/${item._id}`} className="text-decoration-none text-black">
                         <div className="product-card">
                             <img src={item.image ? `${BASE_URL}/upload/${item.image}` : defaultimg} alt={item.name} width="100" height="90" />
