@@ -117,7 +117,7 @@ const ViewProduct = () => {
                                                 </p>
                                                 <p className="m-0 pointer">
                                                     <Link
-                                                        to={`/admin/editcategory/${d._id}`}
+                                                        to={`/admin/editproduct/${d._id}`}
                                                         className="d-flex gap-3 align-items-center text-decoration-none text-black"
                                                     >
                                                         <FaRegEdit size={20} />
