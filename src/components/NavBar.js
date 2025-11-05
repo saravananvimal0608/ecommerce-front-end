@@ -33,7 +33,7 @@ const NavBar = () => {
                     <NavLink to="/" className={({ isActive }) => `text-decoration-none text-black p-2 ${isActive ? "link-border" : ""}`} onClick={() => setMenuOpen(false)}>Home</NavLink>
                     <NavLink to="/products" className={({ isActive }) => `text-decoration-none text-black p-2 ${isActive ? "link-border" : ""}`} onClick={() => setMenuOpen(false)}>Products</NavLink>
                     <NavLink to="/about" className={({ isActive }) => `text-decoration-none text-black p-2 ${isActive ? "link-border" : ""}`} onClick={() => setMenuOpen(false)}>About Us</NavLink>
-
+                    <NavLink to="/profile" className={({ isActive }) => `text-decoration-none text-black hide-lg p-2 ${isActive ? "link-border" : ""}`} onClick={() => setMenuOpen(false)}>Profile</NavLink>
                     {userData?.isAdmin && (
                         <NavLink to="/admin" className={({ isActive }) => `text-decoration-none text-black p-2 ${isActive ? "link-border" : ""}`} onClick={() => setMenuOpen(false)}>
                             Admin Page
