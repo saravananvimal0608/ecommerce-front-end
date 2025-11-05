@@ -275,8 +275,8 @@ mark {
 
 .delete-and-edit-box {
   position: absolute;
-  top: 26px;
-  left: 29%;
+  top: 10px;
+  left: 24%;
   transform: translateX(-50%);
   max-width: 250px;
   min-width: 110px;
