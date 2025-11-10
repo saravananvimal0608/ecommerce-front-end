@@ -251,7 +251,7 @@ const AddProduct = () => {
                             typeof data.image === "string" &&
                             data.image !== "" && (
                                 <img
-                                    src={`${BASE_URL}/upload/${data.image}`}
+                                    src={`${BASE_URL}/upload/${data.image}?t=${Date.now()}`}
                                     alt="old"
                                     width="120"
                                     height="120"
