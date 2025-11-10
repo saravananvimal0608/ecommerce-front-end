@@ -2,9 +2,9 @@
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-const token = localStorage.getItem("token");
 
 export const apiRequest = async (endpoint, method, data = null, customHeaders = {}) => {
+    const token = localStorage.getItem("token");
     try {
         const headers = {
             ...(token ? { Authorization: `Bearer ${token}` } : {}),
