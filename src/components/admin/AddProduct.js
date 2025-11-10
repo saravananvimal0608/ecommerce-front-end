@@ -252,7 +252,7 @@ const AddProduct = () => {
                             data.image !== "" && (
                                 <img
                                     src={`${BASE_URL}/upload/${data.image}?t=${Date.now()}`}
-                                    alt="old image"
+                                    alt="old"
                                     width="120"
                                     height="120"
                                     className="border-3 rounded-5 object-fit-cover pointer"
