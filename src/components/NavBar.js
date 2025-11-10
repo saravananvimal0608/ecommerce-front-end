@@ -7,7 +7,7 @@ import logo from '../assets/logo.png';
 
 const NavBar = () => {
     const userData = JSON.parse(localStorage.getItem("user"));
-    const firstLetterName = userData?.name[0];
+    const firstLetterName = userData?.name?.[0];
     const [menuOpen, setMenuOpen] = useState(false);
     const { items } = useSelector((state) => state.cart);
     const totalCount = items.length
