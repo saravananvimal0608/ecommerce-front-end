@@ -26,7 +26,7 @@ import NotFound from './components/NotFound'
 import ScrollToP from './components/ScrollTop'
 import CartPage from './components/Carts'
 import Address from './components/Address';
-import TodoApp from './components/TodoApp'
+
 
 function AppWrapper() {
   const location = useLocation();
@@ -37,7 +37,6 @@ function AppWrapper() {
       {!isAuthPage && <CheckToken />}
       <Routes>
         <Route path="/login" element={<LoginUser />} />
-        <Route path="todo" element={<TodoApp />} />
         <Route path="/register" element={<AddAndEditUser />} />
         <Route path="/admin" element={<IsAdmin><AdminLayout /></IsAdmin>}>
           <Route index element={<> <Dashboard /> </>} />
