@@ -83,7 +83,7 @@ const Products = () => {
                         onClick={() => setSelectedCategory(cat.name)}
                     >
                         <img
-                            src={cat.image ? `${BASE_URL}/upload/${cat.image}` : defaultimg}
+                            src={cat?.image ? cat.image : defaultimg}
                             width="20"
                             height="20"
                             className="ps-1"
@@ -101,7 +101,7 @@ const Products = () => {
                             <Link to={`/product/${data._id}`} className="text-decoration-none">
                                 <div className="product-img-wrapper p-3 bg-white rounded-3 card">
                                     <img
-                                        src={data?.image ? `${BASE_URL}/upload/${data?.image}` : defaultimg}
+                                        src={data?.image ? data.image : defaultimg}
                                         alt={data.name}
                                         className="img-fluid rounded"
                                         style={{ height: "150px", objectFit: "contain" }}

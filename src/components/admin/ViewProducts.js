@@ -99,7 +99,7 @@ const ViewProduct = () => {
                                     <td className="align-middle">{index + 1}</td>
                                     <td className="align-middle">
                                         <img
-                                            src={d.image ? `${BASE_URL}/upload/${d.image}` : defaultimg}
+                                            src={d?.image ? d.image : defaultimg}
                                             alt="Product"
                                             width="50"
                                             height="50"

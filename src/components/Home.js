@@ -47,7 +47,7 @@ const Home = () => {
                         <div >
                             <Link to={`/product/${data._id}`} className="text-decoration-none text-black">
                                 <img
-                                    src={data?.image ? `${BASE_URL}/upload/${data?.image}` : defaultimg}
+                                    src={data?.image ? data.image : defaultimg}
                                     alt={data?.name}
                                     width="200"
                                     height="200"
