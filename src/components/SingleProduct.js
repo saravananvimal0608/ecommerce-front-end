@@ -60,7 +60,7 @@ const SingleProduct = () => {
                         <div className="col-md-6 d-flex justify-content-center mb-4 mb-md-0">
                             <div className="p-3 w-100 text-center">
                                 <img
-                                    src={data?.image ? `${BASE_URL}/upload/${data?.image}` : defaultimg}
+                                    src={data?.image ? data.image : defaultimg}
                                     alt={data?.name}
                                     className="img-fluid rounded-5"
                                     style={{ maxHeight: "400px", objectFit: "contain" }}

@@ -137,7 +137,7 @@ const AddCategory = () => {
                             typeof data.image === "string" &&
                             data.image !== "" && (
                                 <img
-                                    src={`${BASE_URL}/upload/${data.image}`}
+                                    src={data?.image}
                                     alt="old"
                                     width="120"
                                     height="120"
