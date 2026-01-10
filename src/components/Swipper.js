@@ -5,7 +5,6 @@ import { renderStars } from '../common/common.js'
 import defaultimg from '../assets/defaultimg.png'
 
 const SwiperComponent = ({ product }) => {
-    const BASE_URL = process.env.REACT_APP_BASE_URL
 
     return (
         <Swiper

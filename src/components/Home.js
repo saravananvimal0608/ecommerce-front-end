@@ -14,7 +14,6 @@ import { apiRequest } from './../common/common';
 import defaultimg from '../assets/defaultimg.png'
 
 const Home = () => {
-    const BASE_URL = process.env.REACT_APP_BASE_URL
     const [product, setProduct] = useState([])
 
     const fetchProducts = async () => {

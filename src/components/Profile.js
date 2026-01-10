@@ -8,11 +8,9 @@ import defaultimg from '../assets/defaultimg.png'
 
 const ProfilePage = () => {
     const [data, setData] = useState([])
-    const BASE_URL = process.env.REACT_APP_BASE_URL
     const navigate = useNavigate()
     const user = JSON.parse(localStorage.getItem("user"))
     const fileInputRef = useRef(null)
-    const token = localStorage.getItem("token")
 
     // for click the image input tag is open
     const handleInputChange = () => {
@@ -37,7 +35,6 @@ const ProfilePage = () => {
         const file = e.target.files[0];
         if (!file) return;
 
-        const token = localStorage.getItem("token");
         const formData = new FormData();
         formData.append("image", file);
 

@@ -9,7 +9,6 @@ const AddCategory = () => {
     const [data, setData] = useState({ name: "", image: null });
     const [error, setError] = useState(null);
     const fileInputRef = useRef(null);
-    const BASE_URL = process.env.REACT_APP_BASE_URL;
     const { id } = useParams();
 
     //  Validation

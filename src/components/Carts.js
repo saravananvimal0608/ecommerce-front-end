@@ -9,7 +9,6 @@ import defaultimg from '../assets/defaultimg.png'
 const CartPage = () => {
     const dispatch = useDispatch();
     const { items, loading, error } = useSelector((state) => state.cart);
-    const BASE_URL = process.env.REACT_APP_BASE_URL;
 
     useEffect(() => {
         dispatch(fetchCart());

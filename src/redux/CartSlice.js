@@ -30,20 +30,19 @@ export const removeCartItem = createAsyncThunk(
     "cart/removeCartItem",
     async (productId, { rejectWithValue }) => {
         try {
-            const response = await apiRequest("/cart/remove", "DELETE", { productId });
-
-            return response.data; // return updated cart items
+            await apiRequest("/cart/remove", "DELETE", { productId });
+            return productId;   // <-- unwrap expects a value
         } catch (error) {
             return rejectWithValue(error.response?.data?.message || "Failed to remove item");
         }
     }
 );
 
+
 const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
-
         addItem: (state, action) => {
             state.items.push(action.payload);
         },
@@ -63,29 +62,16 @@ const cartSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchCart.pending, (state) => {
-                state.loading = true;
-            })
             .addCase(fetchCart.fulfilled, (state, action) => {
                 state.loading = false;
                 state.items = action.payload;
             })
-            .addCase(fetchCart.rejected, (state, action) => {
-                state.loading = false;
-                state.error = action.payload;
-            })
             .addCase(removeCartItem.fulfilled, (state, action) => {
-                state.loading = false;
-                const removedId = action.meta.arg;
-                state.items = state.items.filter(item => item.productId._id !== removedId);
-            })
-            .addCase(removeCartItem.rejected, (state, action) => {
-                state.loading = false;
-                state.error = action.payload;
+                const id = action.payload.productId;
+                state.items = state.items.filter((item) => item.productId._id !== id);
             });
     }
-
 });
 
-export const { addItem, removeItem, clearCart, updateLocalQuantity } = cartSlice.actions;
+export const { addItem, removeLocalItem, clearCart, updateLocalQuantity } = cartSlice.actions;
 export default cartSlice.reducer;

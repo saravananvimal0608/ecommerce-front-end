@@ -10,7 +10,6 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 
 const ViewCategory = () => {
     const [data, setData] = useState([])
-    const BASE_URL = process.env.REACT_APP_BASE_URL
     const [Delete, setDelete] = useState(false)
     const [deleteId, setdeleteId] = useState(null)
 

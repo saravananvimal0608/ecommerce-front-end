@@ -11,7 +11,6 @@ const ViewProduct = () => {
     const [data, setData] = useState([]);
     const [Delete, setDelete] = useState(false);
     const [deleteId, setDeleteId] = useState(null);
-    const BASE_URL = process.env.REACT_APP_BASE_URL;
 
     // open delete popup
     const deleteMethod = (id) => {

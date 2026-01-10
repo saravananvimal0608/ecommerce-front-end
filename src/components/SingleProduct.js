@@ -11,7 +11,6 @@ const SingleProduct = () => {
     const [data, setData] = useState({})
     const [allData, setAllData] = useState([])
     const cartData = { productId: data._id, quantity: 1 }
-    const BASE_URL = process.env.REACT_APP_BASE_URL
 
     const fetchRelatedData = async () => {
         try {

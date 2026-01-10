@@ -7,7 +7,6 @@ import { apiRequest } from "../../common/common.js";
 import defaultimg from '../../assets/defaultimg.png'
 
 const AddProduct = () => {
-    const BASE_URL = process.env.REACT_APP_BASE_URL;
     const [data, setData] = useState({
         name: "",
         description: "",

@@ -5,7 +5,6 @@ import { apiRequest } from './../common/common'
 import defaultimg from '../assets/defaultimg.png'
 
 const Products = () => {
-    const BASE_URL = process.env.REACT_APP_BASE_URL
     const [products, setProducts] = useState([])
     const [category, setCategory] = useState([])
     const [selectedCategory, setSelectedCategory] = useState("")
@@ -84,6 +83,7 @@ const Products = () => {
                     >
                         <img
                             src={cat?.image ? cat.image : defaultimg}
+                            alt="category-img"
                             width="20"
                             height="20"
                             className="ps-1"
