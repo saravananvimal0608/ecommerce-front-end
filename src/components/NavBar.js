@@ -3,14 +3,15 @@ import { useState, useEffect } from 'react'
 import { IoReorderThreeOutline, IoCloseSharp } from "react-icons/io5";
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { selectCartItemCount } from '../redux/CartSlice';
 import logo from '../assets/logo.png';
 
 const NavBar = () => {
     const userData = JSON.parse(localStorage.getItem("user"));
     const firstLetterName = userData?.name?.[0];
     const [menuOpen, setMenuOpen] = useState(false);
-    const { items } = useSelector((state) => state.cart);
-    const totalCount = items.length
+    const totalCount = useSelector(selectCartItemCount);
+    console.log("Total Count:", totalCount);
 
     return (
         <div>

@@ -108,18 +108,18 @@ const Products = () => {
                                         onError={(e) => (e.target.src = defaultimg)}
                                     />
                                     <p
-                                        className="my-1 text-dark"
+                                        className="my-1 text-b-black"
                                         dangerouslySetInnerHTML={{
                                             __html: `<b>Name:</b> ${highlightText(data.name, search)}`
                                         }}
                                     ></p>
                                     <p
-                                        className="my-1 text-dark"
+                                        className="my-1 text-b-black"
                                         dangerouslySetInnerHTML={{
                                             __html: `<b>Brand:</b> ${highlightText(data.brand, search)}`
                                         }}
                                     ></p>
-                                    <p className="text-black mt-1">
+                                    <p className="text-b-black mt-1">
                                         <b>Price:</b> ₹<span className="red-color">{data.price}</span>
                                     </p>
                                 </div>

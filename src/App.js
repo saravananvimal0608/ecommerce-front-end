@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { useEffect } from 'react'
 import AddAndEditUser from "./users/RegisterUser";
 import LoginUser from './users/LoginUser';
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,18 +27,31 @@ import NotFound from './components/NotFound'
 import ScrollToP from './components/ScrollTop'
 import CartPage from './components/Carts'
 import Address from './components/Address';
+import { useDispatch } from 'react-redux';
+import { fetchCart } from './redux/CartSlice';
 
 
 function AppWrapper() {
+
+  const dispatch = useDispatch();
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const location = useLocation();
   const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
 
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchCart());
+    }
+  }, [dispatch, user]);
+  
   return (
     <>
       {!isAuthPage && <CheckToken />}
       <Routes>
         <Route path="/login" element={<LoginUser />} />
         <Route path="/register" element={<AddAndEditUser />} />
+
         <Route path="/admin" element={<IsAdmin><AdminLayout /></IsAdmin>}>
           <Route index element={<> <Dashboard /> </>} />
           <Route path="addcategory" element={<AddCategory />} />
@@ -47,6 +61,7 @@ function AppWrapper() {
           <Route path="viewproduct" element={<Viewproduct />} />
           <Route path="editproduct/:id" element={<AddProduct />} />
         </Route>
+
         <Route path="/" element={<PrivateRouter><Layout /></PrivateRouter>}>
           <Route index element={<Home />} />
           <Route path="/products" element={<Products />} />

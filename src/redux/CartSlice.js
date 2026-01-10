@@ -74,4 +74,8 @@ const cartSlice = createSlice({
 });
 
 export const { addItem, removeLocalItem, clearCart, updateLocalQuantity } = cartSlice.actions;
+
+// Selector to get cart item count
+export const selectCartItemCount = (state) => state.cart.items.length;
+
 export default cartSlice.reducer;

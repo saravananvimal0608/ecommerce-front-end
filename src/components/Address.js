@@ -253,7 +253,7 @@ const Address = () => {
                         <Button
                           className="bg-color border-0 text-black"
                           size="sm"
-                          onClick={popupModel} // ✅ fixed function call
+                          onClick={popupModel} 
                         >
                           Order Now
                         </Button>
@@ -269,8 +269,8 @@ const Address = () => {
                           <h5 className="text-success fw-bold mb-3">
                             🎉 Order Successful!
                           </h5>
-                          <p>Your order has been placed successfully.</p>
-                          <p className="text-muted">
+                          <p className="text-b-black">Your order has been placed successfully.</p>
+                          <p className="text-b-black">
                             Redirecting to home page in 5 seconds...
                           </p>
                         </Modal.Body>
