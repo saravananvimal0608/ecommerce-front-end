@@ -1,5 +1,5 @@
 .register-container {
-  height: 100vh;
+
   background: linear-gradient(135deg, #3E2F5B 0%, #2A1F42 100%);
 }
 
@@ -344,6 +344,7 @@ mark {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
   backdrop-filter: blur(10px);
+
 }
 
 .delete-and-edit-box {
