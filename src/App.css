@@ -1,31 +1,26 @@
 .register-container {
-  height: 100vh
+  height: 100vh;
+  background: linear-gradient(135deg, #3E2F5B 0%, #2A1F42 100%);
 }
 
 .login-container {
-  height: 100vh
-}
-
-.register-container {
-  background-image: url(./assets/ecommerce.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  height: 100vh;
+  background: linear-gradient(135deg, #3E2F5B 0%, #2A1F42 100%);
 }
 
 .brandimg {
-  border: 1px solid #F5B027;
-  padding: 10px;
-  box-shadow: 5px 5px #F5B027;
+  border: 2px solid #E94560;
+  padding: 15px;
+  box-shadow: 0 8px 16px rgba(233, 69, 96, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
 
-.login-container {
-  background-image: url(./assets/ecommerce-login.jpg);
-  /* background-repeat: no-repeat; */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+.brandimg:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(233, 69, 96, 0.4);
 }
 
 .password-icon {
@@ -50,11 +45,13 @@
 }
 
 .bg-color {
-  background-color: #F5B027;
+  background-color: #E94560;
+  transition: all 0.3s ease;
 }
 
 .bg-color:hover {
-  background-color: #F5B027;
+  background-color: #d63851;
+  transform: translateY(-2px);
 }
 
 @media screen and (max-width:426px) {
@@ -64,21 +61,38 @@
 }
 
 .color-text {
-  color: #F5B027;
+  color: #E94560;
 }
 
 .bg-color-linear {
-  background: linear-gradient(to top, #DE6089 0%, #F6B696 100%);
+  background: linear-gradient(135deg, #E94560 0%, #d63851 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
 }
 
 .dynamic-products {
-  border: 2px solid #E4778C;
-  box-shadow: 5px 5px 5px lightgray;
+  border: 2px solid #E94560;
+  box-shadow: 0 8px 20px rgba(233, 69, 96, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.dynamic-products:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(233, 69, 96, 0.3);
 }
 
 .banner-single-img {
-  background: linear-gradient(to top, #DE6089 0%, #F6B696 100%);
-  box-shadow: 5px 5px 5px lightgray;
+  background: linear-gradient(135deg, #E94560 0%, #d63851 100%);
+  box-shadow: 0 8px 20px rgba(233, 69, 96, 0.3);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.banner-single-img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(233, 69, 96, 0.4);
 }
 
 .banner-img {
@@ -110,11 +124,17 @@ input.search-input::placeholder {
 
 
 .btn-background-color {
-  background-color: #F5B027;
+  background-color: #E94560;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
 .btn-background-color:hover {
-  background-color: #F5B027;
+  background-color: #d63851;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
 }
 
 @media screen and (max-width:1025px) {
@@ -124,24 +144,41 @@ input.search-input::placeholder {
 }
 
 .bg-color-grey {
-  background-color: #212529
+  background-color: #3E2F5B;
 }
 
 input.search-input {
-  border: 1px solid #F5B027;
+  border: 2px solid #E94560;
   outline: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+}
+
+input.search-input:focus {
+  border-color: #d63851;
+  box-shadow: 0 0 15px rgba(233, 69, 96, 0.3);
 }
 
 .link-border {
-  background-color: #F5B027;
-  color: #000 !important;
-  border-radius: 10px;
-  transition: 0.3s ease;
+  background-color: #E94560;
+  color: #fff !important;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+}
+
+.link-border:hover {
+  background-color: #d63851;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
 }
 
 .border-color {
-  border: 4px solid #F5B027 !important;
-
+  border: 3px solid #E94560 !important;
+  border-radius: 12px;
 }
 
 .product-wrapper {
@@ -154,16 +191,24 @@ input.search-input {
 /* swipper */
 
 .product-card {
-  border: 1px solid #eee;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  border: 2px solid #E94560;
+  box-shadow: 0 8px 20px rgba(233, 69, 96, 0.2);
+  padding: 15px;
   text-align: center;
-  background: #fff;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(233, 69, 96, 0.3);
+  border-color: #d63851;
 }
 
 #root {
-  background-color: #F8F9FA
+  background-color: #3E2F5B;
+  min-height: 100vh;
 }
 
 .red-color {
@@ -171,7 +216,7 @@ input.search-input {
 }
 
 .bg-color-light {
-  background-color: #F8F9FA !important
+  background-color: #3E2F5B !important;
 }
 
 .product-card img {
@@ -181,20 +226,33 @@ input.search-input {
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #b02a30 !important;
+  color: #E94560 !important;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(233, 69, 96, 0.1);
+  transform: scale(1.1);
 }
 
 /* swipper */
 
 .input-field-error {
-  border: 2px solid #b02a30
+  border: 2px solid #E94560;
+  box-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
 }
 
 mark {
-  color: #F5B027;
+  color: #E94560;
   font-weight: bold;
-  background-color: white;
-  padding: 0 !important;
+  background-color: rgba(233, 69, 96, 0.1);
+  padding: 2px 4px !important;
+  border-radius: 4px;
 }
 
 .product-wrapper p {
@@ -204,8 +262,10 @@ mark {
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(233, 69, 96, 0.2);
+  border-color: #E94560;
+  transition: all 0.3s ease;
 }
 
 .product-img-wrapper {
@@ -241,9 +301,10 @@ mark {
     width: 17%;
     padding: 20px;
     text-align: center;
-    background-color: #F8F9FA;
+    background: linear-gradient(135deg, #3E2F5B 0%, #2A1F42 100%);
     transition: left 0.3s ease;
     z-index: 1000;
+    backdrop-filter: blur(10px);
   }
 
   .navbar-container {
@@ -257,8 +318,17 @@ mark {
 
   .nav-links.show {
     left: 0;
-    background: linear-gradient(to top, #DE6089 0%, #F6B696 100%);
-    top: 0
+    background: linear-gradient(135deg, #3E2F5B 0%, #2A1F42 100%);
+    top: 0;
+  }
+
+  .nav-links.show a {
+    color: #fff !important;
+  }
+
+  .nav-links.show .link-border {
+    background-color: #E94560;
+    color: #fff !important;
   }
 }
 
@@ -269,8 +339,11 @@ mark {
 }
 
 .form-box {
-  border: 1px solid #1D759B;
-  box-shadow: 0px 0px 10px 0px #1D759B;
+  border: 2px solid #E94560;
+  box-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
 }
 
 .delete-and-edit-box {
@@ -355,7 +428,7 @@ mark {
 }
 
 .table-header th {
-  background-color: #F5B027 !important
+  background-color: #E2405A !important
 }
 
 .form-container {
@@ -391,6 +464,75 @@ mark {
 
 .pointer {
   cursor: pointer;
+}
+
+/* User-facing component enhancements */
+.product-card-home {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.product-card-home:hover {
+  transform: translateY(-5px);
+}
+
+/* Enhanced form styling for user components */
+.form-control {
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #E94560;
+  box-shadow: 0 0 0 0.2rem rgba(233, 69, 96, 0.25);
+}
+
+/* Enhanced button hover effects */
+.btn:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Navbar enhancements */
+.navbar-container {
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(233, 69, 96, 0.2);
+}
+
+/* Card enhancements for user components */
+.card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(233, 69, 96, 0.2);
+}
+
+.card:hover {
+  border-color: #E94560;
+}
+
+/* Text color utilities for dark theme */
+.text-accent {
+  color: #E94560 !important;
+}
+
+.bg-dark-theme {
+  background-color: #3E2F5B !important;
+}
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #3E2F5B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E94560;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d63851;
 }
 
 /* admin css */

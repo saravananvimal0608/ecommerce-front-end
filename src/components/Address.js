@@ -142,11 +142,11 @@ const Address = () => {
           </div>
         </div>
       )}
-      <Container fluid className="d-flex justify-content-center mt-5 pb-3 vh-100">
+      <Container fluid className="d-flex justify-content-center mt-5 pb-3 vh-100" style={{backgroundColor: '#3E2F5B'}}>
         <Row className="w-100 mt-5 mt-xl-0">
           <Col md={6} className="mx-auto">
-            <Card className="p-4 shadow-sm rounded-3">
-              <h4 className="mb-3 text-center">
+            <Card className="p-4 shadow-sm rounded-3" style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', border: '2px solid #E94560'}}>
+              <h4 className="mb-3 text-center text-dark">
                 {address ? "Saved Address" : "Add New Address"}
               </h4>
 
@@ -154,80 +154,86 @@ const Address = () => {
               {!address || editId ? (
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3">
-                    <Form.Label>Address Line 1</Form.Label>
+                    <Form.Label className="text-dark fw-semibold">Address Line 1</Form.Label>
                     <Form.Control
                       name="addressLine1"
                       value={formData.addressLine1}
                       onChange={handleChange}
                       placeholder="Enter address line 1"
                       required
+                      style={{borderRadius: '8px', padding: '12px'}}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
-                    <Form.Label>Address Line 2</Form.Label>
+                    <Form.Label className="text-dark fw-semibold">Address Line 2</Form.Label>
                     <Form.Control
                       name="addressLine2"
                       value={formData.addressLine2}
                       onChange={handleChange}
                       placeholder="Enter address line 2"
+                      style={{borderRadius: '8px', padding: '12px'}}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
-                    <Form.Label>City</Form.Label>
+                    <Form.Label className="text-dark fw-semibold">City</Form.Label>
                     <Form.Control
                       name="city"
                       value={formData.city}
                       onChange={handleChange}
                       placeholder="Enter city"
                       required
+                      style={{borderRadius: '8px', padding: '12px'}}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
-                    <Form.Label>State</Form.Label>
+                    <Form.Label className="text-dark fw-semibold">State</Form.Label>
                     <Form.Control
                       name="state"
                       value={formData.state}
                       onChange={handleChange}
                       placeholder="Enter state"
                       required
+                      style={{borderRadius: '8px', padding: '12px'}}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
-                    <Form.Label>Pincode</Form.Label>
+                    <Form.Label className="text-dark fw-semibold">Pincode</Form.Label>
                     <Form.Control
                       name="pincode"
                       value={formData.pincode}
                       onChange={handleChange}
                       placeholder="Enter pincode"
                       required
+                      style={{borderRadius: '8px', padding: '12px'}}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
-                    <Form.Label>Country</Form.Label>
+                    <Form.Label className="text-dark fw-semibold">Country</Form.Label>
                     <Form.Control
                       name="country"
                       value={formData.country}
                       onChange={handleChange}
                       placeholder="Enter country"
+                      style={{borderRadius: '8px', padding: '12px'}}
                     />
                   </Form.Group>
 
-                  <Button type="submit" className="w-100 bg-color border-0">
+                  <Button type="submit" className="w-100 bg-color border-0 text-white fw-bold" style={{borderRadius: '25px', padding: '12px'}}>
                     {editId ? "Update Address" : "Add Address"}
                   </Button>
                 </Form>
               ) : (
                 <>
-                  <Card className="p-3 shadow-sm mt-3">
+                  <Card className="p-3 shadow-sm mt-3" style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', border: '1px solid #E94560'}}>
                     <Card.Body>
-                      <h6 className="fw-bold">{address.addressLine1}</h6>
-                      <p className="mb-1">{address.addressLine2}</p>
-                      <p className="mb-1">
+                      <h6 className="fw-bold text-dark">{address.addressLine1}</h6>
+                      <p className="mb-1 text-dark">{address.addressLine2}</p>
+                      <p className="mb-1 text-dark">
                         {address.city}, {address.state} - {address.pincode}
                       </p>
                       <p className="mb-2 text-muted">{address.country}</p>
@@ -238,6 +244,7 @@ const Address = () => {
                             variant="outline-success"
                             size="sm"
                             onClick={handleEdit}
+                            style={{borderRadius: '20px'}}
                           >
                             Edit
                           </Button>
@@ -245,15 +252,17 @@ const Address = () => {
                             variant="outline-danger"
                             size="sm"
                             onClick={() => deleteMethod(address._id)}
+                            style={{borderRadius: '20px'}}
                           >
                             Delete
                           </Button>
                         </div>
 
                         <Button
-                          className="bg-color border-0 text-black"
+                          className="bg-color border-0 text-white fw-bold"
                           size="sm"
-                          onClick={popupModel} // ✅ fixed function call
+                          onClick={popupModel}
+                          style={{borderRadius: '20px', padding: '8px 16px'}}
                         >
                           Order Now
                         </Button>

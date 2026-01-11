@@ -4,6 +4,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import { toast } from 'react-toastify'
 import { useNavigate, useParams } from 'react-router-dom'
 import { apiRequest } from '../common/common.js'
+import { Link } from 'react-router-dom';
 
 const RegisterUser = () => {
     const [data, setData] = useState({ name: "", email: '', number: '', password: '' })
@@ -92,29 +93,42 @@ const RegisterUser = () => {
 
     return (
         <div className="d-flex justify-content-center align-items-center register-container" >
-            <form onSubmit={handlesubmit} className=" p-5 form-box">
-                <div className="form-group">
-                    <label for="name" className="text-white">Name</label>
-                    <input type="text" className={`form-control ${error?.name ? 'input-field-error' : ""}`} name="name" value={data.name} onChange={handleChange} />
-                    {error.name && <p className="text-danger"><b>{error.name}</b></p>}
-
+            <form onSubmit={handlesubmit} className="p-5 form-box">
+                <div className="text-center mb-4">
+                    <h3 className="text-white fw-bold">{id ? "Update Profile" : "Create Account"}</h3>
+                    <p className="text-white opacity-75">{id ? "Update your information" : "Join our community today"}</p>
                 </div>
-                <div className="form-group">
-                    <label for="exampleInputEmail1" className="text-white">Email address</label>
-                    <input type="email" className={`form-control ${error?.email ? 'input-field-error' : ""}`} name="email" value={data.email} onChange={handleChange} />
+                <div className="form-group mb-3">
+                    <label className="text-white fw-semibold mb-2">Name</label>
+                    <input type="text" className={`form-control ${error?.name ? 'input-field-error' : ""}`} name="name" value={data.name} onChange={handleChange} style={{ borderRadius: '8px', padding: '12px' }} />
+                    {error.name && <p className="text-danger"><b>{error.name}</b></p>}
+                </div>
+                <div className="form-group mb-3">
+                    <label className="text-white fw-semibold mb-2">Email address</label>
+                    <input type="email" className={`form-control ${error?.email ? 'input-field-error' : ""}`} name="email" value={data.email} onChange={handleChange} style={{ borderRadius: '8px', padding: '12px' }} />
                     {error.email && <p className="text-danger"><b>{error.email}</b></p>}
                 </div>
-                <div className="form-group">
-                    <label for="name" className="text-white">Phone:</label>
-                    <input type="text" className={`form-control ${error?.number ? 'input-field-error' : ""}`} name="number" value={data.number} onChange={handleChange} maxLength={10} />
+                <div className="form-group mb-3">
+                    <label className="text-white fw-semibold mb-2">Phone:</label>
+                    <input type="text" className={`form-control ${error?.number ? 'input-field-error' : ""}`} name="number" value={data.number} onChange={handleChange} maxLength={10} style={{ borderRadius: '8px', padding: '12px' }} />
                     {error.number && <p className="text-danger"><b>{error.number}</b></p>}
                 </div>
-                {!id && <div className="form-group">
-                    <label for="exampleInputPassword1" className="text-white">Password</label>
-                    <span className="position-relative"> <input type={togglePassword ? "text" : "password"} className={`form-control ${error?.password ? 'input-field-error' : ""}`} placeholder={id ? "enter new password" : ""} name="password" value={data.password} onChange={handleChange} /><span className="password-icon password-icon-register" onClick={() => setTogglePassword(!togglePassword)}> {togglePassword ? <FaEye /> : <FaEyeSlash />}</span></span>
+                {!id && <div className="form-group mb-4">
+                    <label className="text-white fw-semibold mb-2">Password</label>
+                    <span className="position-relative">
+                        <input type={togglePassword ? "text" : "password"} className={`form-control ${error?.password ? 'input-field-error' : ""}`} placeholder={id ? "enter new password" : ""} name="password" value={data.password} onChange={handleChange} style={{ borderRadius: '8px', padding: '12px' }} />
+                        <span className="password-icon password-icon-register" onClick={() => setTogglePassword(!togglePassword)}>
+                            {togglePassword ? <FaEye /> : <FaEyeSlash />}
+                        </span>
+                    </span>
                     {error.password && <p className="text-danger"><b>{error.password}</b></p>}
                 </div>}
-                <button type="submit" className="btn-background-color btn mt-3 text-white">{id ? "Update" : "Register"}</button>
+                <button type="submit" className="btn-background-color btn mt-3 text-white fw-bold py-2 w-100" style={{ borderRadius: '25px', transition: 'all 0.3s ease' }}>{id ? "Update" : "Register"}</button>
+                {!id && (
+                    <div className="text-center mt-3">
+                        <Link to="/login" className="text-white text-decoration-none opacity-75">Already have an account? Sign In</Link>
+                    </div>
+                )}
             </form>
         </div>
     )

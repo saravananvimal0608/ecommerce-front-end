@@ -53,12 +53,12 @@ const SingleProduct = () => {
     }, [id])
 
     return (
-        <div className="container position-relative">
+        <div className="container position-relative" style={{backgroundColor: '#3E2F5B', minHeight: '100vh'}}>
             <div className="row mt-5 justify-content-center">
                 <div className="col-lg-10 pt-3 pt-xl-0">
                     <div className="row">
                         <div className="col-md-6 d-flex justify-content-center mb-4 mb-md-0">
-                            <div className="p-3 w-100 text-center">
+                            <div className="p-3 w-100 text-center" style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', borderRadius: '15px', border: '2px solid #E94560'}}>
                                 <img
                                     src={data?.image ? data.image : defaultimg}
                                     alt={data?.name}
@@ -70,13 +70,13 @@ const SingleProduct = () => {
 
                         <div className="col-md-6 mt-md-3">
                             <div className="px-3">
-                                <h3 className="fw-bold para-description">{data?.name}</h3>
-                                <h4 className="py-2">₹ {data?.price}</h4>
-                                <p className="para-description"><b>Description : </b> {data?.description}</p>
-                                <p className="para-description"><b>Category : </b>{data?.category?.name ? (data?.category?.name) : "no category"}</p>
-                                <p className="para-description"><b>Brand : </b> {data?.brand}</p>
-                                <p className="para-description"><b>Stocks :</b> {data?.stock}</p>
-                                <button className="btn btn-dark mt-3 px-4 py-2 d-flex align-items-center gap-2" onClick={handleSubmit}>
+                                <h3 className="fw-bold para-description text-white">{data?.name}</h3>
+                                <h4 className="py-2 color-text fw-bold">₹ {data?.price}</h4>
+                                <p className="para-description text-white"><b>Description: </b> {data?.description}</p>
+                                <p className="para-description text-white"><b>Category: </b>{data?.category?.name ? (data?.category?.name) : "no category"}</p>
+                                <p className="para-description text-white"><b>Brand: </b> {data?.brand}</p>
+                                <p className="para-description text-white"><b>Stocks: </b> {data?.stock}</p>
+                                <button className="btn btn-background-color mt-3 px-4 py-2 d-flex align-items-center gap-2 text-white fw-bold" onClick={handleSubmit} style={{borderRadius: '25px', transition: 'all 0.3s ease'}}>
                                     <FaShoppingBag color="white" size={18} />
                                     Add to Cart
                                 </button>
@@ -87,7 +87,7 @@ const SingleProduct = () => {
             </div>
 
             <div className="bg-color-linear my-5">
-                <h4 className="text-center p-1 fw-bold">Related Products</h4>
+                <h4 className="text-center p-3 fw-bold text-white">Related Products</h4>
             </div>
             <SwiperComponent product={allData} />
             <div className="mt-5">

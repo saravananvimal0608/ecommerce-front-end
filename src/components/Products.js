@@ -56,39 +56,43 @@ const Products = () => {
     }, [])
 
     return (
-        <div className="container mt-4 product-wrapper mb-2">
+        <div className="container mt-4 product-wrapper mb-2" style={{backgroundColor: '#3E2F5B', minHeight: '100vh'}}>
             {/* Search Input */}
             <div className="d-flex justify-content-center mb-4 mt-5 mt-xl-0">
                 <input
                     type="text"
-                    className="form-control w-50 rounded-5 shadow-sm"
+                    className="form-control w-50 search-input"
                     placeholder="Search products..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
+                    style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', color: '#333'}}
                 />
             </div>
 
             {/* Category filter */}
             <div className="mb-4 d-flex gap-3 flex-wrap ps-1 mb-5">
                 <h6
-                    className={`p-2 rounded-5 pointer ${selectedCategory === "" ? "fw-bold bg-color" : ""}`}
+                    className={`p-2 rounded-5 pointer ${selectedCategory === "" ? "fw-bold bg-color text-white" : "text-white border border-light"}`}
                     onClick={() => setSelectedCategory("")}
+                    style={{cursor: 'pointer', transition: 'all 0.3s ease'}}
                 >
                     All Products
                 </h6>
                 {category.map((cat) => (
                     <div
                         key={cat._id}
-                        className={`d-flex align-items-center rounded-5 ${selectedCategory === cat.name ? "fw-bold bg-color" : ""}`}
+                        className={`d-flex align-items-center rounded-5 pointer ${selectedCategory === cat.name ? "fw-bold bg-color" : "border border-light"}`}
                         onClick={() => setSelectedCategory(cat.name)}
+                        style={{cursor: 'pointer', transition: 'all 0.3s ease'}}
                     >
                         <img
                             src={cat?.image ? cat.image : defaultimg}
                             width="20"
                             height="20"
                             className="ps-1"
+                            style={{borderRadius: '50%'}}
                         />
-                        <h6 className="p-2 rounded-5">{cat.name}</h6>
+                        <h6 className={`p-2 rounded-5 mb-0 ${selectedCategory === cat.name ? "text-white" : "text-white"}`}>{cat.name}</h6>
                     </div>
                 ))}
             </div>
@@ -99,7 +103,7 @@ const Products = () => {
                     filteredProducts.map((data) => (
                         <div key={data._id} className="col-6 col-md-4 col-lg-3 mb-4 text-center g-3">
                             <Link to={`/product/${data._id}`} className="text-decoration-none">
-                                <div className="product-img-wrapper p-3 bg-white rounded-3 card">
+                                <div className="product-img-wrapper p-3 bg-white rounded-3 card" style={{transition: 'all 0.3s ease', border: '2px solid transparent'}}>
                                     <img
                                         src={data?.image ? data.image : defaultimg}
                                         alt={data.name}
@@ -119,8 +123,8 @@ const Products = () => {
                                             __html: `<b>Brand:</b> ${highlightText(data.brand, search)}`
                                         }}
                                     ></p>
-                                    <p className="text-black mt-1">
-                                        <b>Price:</b> ₹<span className="red-color">{data.price}</span>
+                                    <p className="text-dark mt-1">
+                                        <b>Price:</b> ₹<span className="color-text fw-bold">{data.price}</span>
                                     </p>
                                 </div>
                             </Link>
@@ -128,7 +132,7 @@ const Products = () => {
                     ))
                 ) : (
                     <div className="text-center py-5">
-                        <p className="text-muted fs-5">No products found.</p>
+                        <p className="text-white fs-5">No products found.</p>
                     </div>
                 )}
             </div>

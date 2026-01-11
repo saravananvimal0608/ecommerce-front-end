@@ -46,21 +46,30 @@ const LoginUser = () => {
     }
 
     return (
-        <div className="d-flex justify-content-center align-items-center login-container " >
-            <form onSubmit={handlesubmit} className=" p-5 form-box">
-                <div className="form-group ">
-                    <label className="text-white">Email</label>
-                    <input type="text" className={`form-control ${error?.email ? 'input-field-error' : ""}`} name="email" value={data?.email} onChange={handleChange} />
+        <div className="d-flex justify-content-center align-items-center login-container" >
+            <form onSubmit={handlesubmit} className="p-5 form-box">
+                <div className="text-center mb-4">
+                    <h3 className="text-white fw-bold">Welcome Back</h3>
+                    <p className="text-white opacity-75">Sign in to your account</p>
+                </div>
+                <div className="form-group mb-3">
+                    <label className="text-white fw-semibold mb-2">Email</label>
+                    <input type="text" className={`form-control ${error?.email ? 'input-field-error' : ""}`} name="email" value={data?.email} onChange={handleChange} style={{borderRadius: '8px', padding: '12px'}} />
                     {error?.email && <span className="text-danger"><b>{error.email}</b></span>}
                 </div>
-                <div className="form-group">
-                    <label for="exampleInputPassword1" className="text-white">Password</label>
-                    <span className="position-relative"> <input type={togglePassword ? "text" : "password"}  className={`form-control ${error?.password ? 'input-field-error' : ""}`} name="password" value={data?.password} onChange={handleChange} /><span className="password-icon" onClick={() => setTogglePassword(!togglePassword)}> {togglePassword ? <FaEye /> : <FaEyeSlash />}</span></span>
+                <div className="form-group mb-4">
+                    <label className="text-white fw-semibold mb-2">Password</label>
+                    <span className="position-relative"> 
+                        <input type={togglePassword ? "text" : "password"} className={`form-control ${error?.password ? 'input-field-error' : ""}`} name="password" value={data?.password} onChange={handleChange} style={{borderRadius: '8px', padding: '12px'}} />
+                        <span className="password-icon" onClick={() => setTogglePassword(!togglePassword)}> 
+                            {togglePassword ? <FaEye /> : <FaEyeSlash />}
+                        </span>
+                    </span>
                     {error?.password && <p className="text-danger"><b>{error?.password}</b></p>}
                 </div>
                 <div className="d-flex flex-column">
-                    <button type="submit" className="btn-background-color btn mt-3 text-white">Login</button>
-                    <Link to="/register" className="text-white text-decoration-none">New User ?</Link>
+                    <button type="submit" className="btn-background-color btn mt-3 text-white fw-bold py-2" style={{borderRadius: '25px', transition: 'all 0.3s ease'}}>Login</button>
+                    <Link to="/register" className="text-white text-decoration-none text-center mt-3 opacity-75">New User? Create Account</Link>
                 </div>
             </form>
         </div>

@@ -56,15 +56,16 @@ const ProfilePage = () => {
         handleFetch()
     }, [])
     return (
-        <div className="container py-5 vh-100 d-flex flex-column justify-content-center my-profile-wrapper">
-            <h2 className="text-center color-text fw-bold mb-5 ">My Profile</h2>
+        <div className="container py-5 vh-100 d-flex flex-column justify-content-center my-profile-wrapper" style={{backgroundColor: '#3E2F5B'}}>
+            <h2 className="text-center color-text fw-bold mb-5">My Profile</h2>
             <div className="row justify-content-center">
                 <div className="col-12 col-md-4 mb-4">
-                    <div className="card text-center p-4 shadow-lg border-0 profile-card">
+                    <div className="card text-center p-4 shadow-lg border-0 profile-card" style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', border: '2px solid #E94560 !important', borderRadius: '15px'}}>
                         <img
                             src={data?.profileImage ? data.profileImage : defaultimg}
                             alt="User"
-                            className="rounded-circle mx-auto border border-3 border-color object-fit-cover"
+                            className="rounded-circle mx-auto border border-3 object-fit-cover"
+                            style={{borderColor: '#E94560 !important', cursor: 'pointer', transition: 'all 0.3s ease'}}
                             width="120"
                             height="120"
                             onClick={handleInputChange}
@@ -78,21 +79,22 @@ const ProfilePage = () => {
                             className="form-control mt-3 d-none"
                         />
 
-                        <h4 className="mt-3 text-dark">{data?.name || "Guest User"}</h4>
+                        <h4 className="mt-3 text-dark fw-bold">{data?.name || "Guest User"}</h4>
                         <p className="text-muted mb-1">{data?.email || "No Email"}</p>
                         <p className="text-muted">{data?.number || "No Number"}</p>
 
                         <Link to={`/editprofile/${user._id}`}
-                            className="btn  mt-3 fw-semibold bg-color"
+                            className="btn mt-3 fw-semibold bg-color text-white"
+                            style={{borderRadius: '25px', transition: 'all 0.3s ease'}}
                         >
                             Edit Profile
                         </Link>
-                        <p className="btn fw-semibold bg-color mt-2" onClick={handleLogout}>Logout</p>
+                        <button className="btn fw-semibold bg-color mt-2 text-white w-100" onClick={handleLogout} style={{borderRadius: '25px', transition: 'all 0.3s ease'}}>Logout</button>
                     </div>
                 </div>
 
                 <div className="col-12 col-md-8">
-                    <div className="card p-4 shadow-lg border-0 profile-details">
+                    <div className="card p-4 shadow-lg border-0 profile-details" style={{backgroundColor: 'rgba(255, 255, 255, 0.95)', border: '2px solid #E94560 !important', borderRadius: '15px'}}>
                         <h5 className="mb-4 color-text fw-bold">Account Details</h5>
 
                         <div className="row mb-3">
