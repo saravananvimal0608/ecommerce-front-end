@@ -45,7 +45,7 @@ const Home = () => {
                 <div className="d-flex flex-wrap gap-5 justify-content-center mt-5">
                     {product.slice(0, 10).map((data) => (
                         <div key={data._id} className="product-card-home">
-                            <Link to={`/product/${data._id}`} className="text-decoration-none text-dark">
+                            <Link to={`/product/${data._id}`} className="text-decoration-none text-white">
                                 <img
                                     src={data?.image ? data.image : defaultimg}
                                     alt={data?.name}
@@ -54,9 +54,9 @@ const Home = () => {
                                     className="dynamic-products p-2"
                                     style={{ borderRadius: '12px' }}
                                 />
-                                <h6 className="mt-2 text-dark"><b>Brand: </b>{data.name}</h6>
-                                <p className='mb-1 text-dark'><b>Price: </b><span className='color-text fw-bold'>${data.price}</span></p>
-                                <p className="text-dark"><b>Rating: </b> <span className="color-text">{renderStars(4)}</span></p>
+                                <h6 className="mt-2 text-white"><b>Brand: </b>{data.name}</h6>
+                                <p className='mb-1 text-white'><b>Price: </b><span className='color-text fw-bold'>${data.price}</span></p>
+                                <p className="text-white"><b>Rating: </b> <span className="color-text">{renderStars(4)}</span></p>
                             </Link>
                         </div>
                     ))}
