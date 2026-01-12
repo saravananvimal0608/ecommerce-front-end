@@ -7,7 +7,7 @@ import PieChart from './PieChart'
 const Dashboard = () => {
     return (
         <div className="p-3 container">
-            <h2 className="mb-5 fw-bold">Dashboard</h2>
+            <h2 className="mb-5 fw-bold text-white">Dashboard</h2>
             {/* Cards */}
             <div className="d-flex justify-content-around flex-wrap col-12 gap-3">
                 <div className="dashboard-card col-12 col-md-5 col-xl-2 text-center position-relative">
