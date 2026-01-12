@@ -125,7 +125,7 @@ const AddProduct = () => {
     return (
         <div className="d-flex justify-content-center">
             <div className="col-12 col-md-8 col-lg-6">
-                <h2 className="mt-5 mb-3 text-center fw-bold">
+                <h2 className="mt-5 mb-3 text-center fw-bold text-white">
                     {id ? "Edit Product" : "Add Product"}
                 </h2>
 
