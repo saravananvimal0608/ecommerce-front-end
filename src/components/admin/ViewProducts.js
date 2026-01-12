@@ -82,7 +82,7 @@ const ViewProduct = () => {
 
             {/* Product Table */}
             <div className="d-flex justify-content-center flex-column w-100 p-3">
-                <h2 className="text-center mb-5 fw-bold">All Products</h2>
+                <h2 className="text-center mb-5 fw-bold text-white">All Products</h2>
                 <div className="w-100 p-3 border rounded shadow-sm bg-light scroll-bar">
                     <table className="table table-bordered table-hover">
                         <thead className="table-header text-center">
