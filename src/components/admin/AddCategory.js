@@ -67,7 +67,7 @@ const AddCategory = () => {
     return (
         <div className="d-flex justify-content-center">
             <div className="w-100" style={{ maxWidth: "550px" }}>
-                <h2 className="text-center mb-4 fw-bold">
+                <h2 className="text-center mb-4 fw-bold text-white">
                     {id ? "Edit Category" : "Add Category"}
                 </h2>
 
